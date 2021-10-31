@@ -2,4 +2,10 @@
     <string name="app_name">TaskMaster</string>
     <string name="all_tasks">All Tasks</string>
     <string name="add_task">Add Task</string>
+    <string name="total_tasks">Total tasks:</string>
+    <string name="task_description">Task Description</string>
+    <string name="task_title">Task title</string>
+    <string name="do_somthing">Do somthing</string>
+    <string name="my_task">My Task</string>
+
 </resources>
