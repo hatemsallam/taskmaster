@@ -13,14 +13,16 @@ public class TaskDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
 
-
         Intent intent = getIntent();
-
-        String taskTitle = intent.getExtras().getString("task");
-
+        String title = intent.getExtras().getString("title");
         TextView text = findViewById(R.id.text_taskTitle);
-
-        text.setText(taskTitle);
+        text.setText(title);
+        String body = intent.getExtras().getString("body");
+        TextView text2 = findViewById(R.id.text_taskbody);
+        text2.setText(body);
+        String state = intent.getExtras().getString("state");
+        TextView text3 = findViewById(R.id.text_taskstate);
+        text3.setText(state);
 
 
     }

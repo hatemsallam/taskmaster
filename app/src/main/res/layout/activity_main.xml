@@ -63,48 +63,6 @@
         app:layout_constraintVertical_bias="0.947" />
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="215dp"
-        android:layout_height="73dp"
-        android:onClick="taskDetail"
-        android:text="Task1"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="215dp"
-        android:layout_height="73dp"
-        android:onClick="taskDetail"
-        android:text="Task2"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="215dp"
-        android:layout_height="73dp"
-        android:onClick="taskDetail"
-        android:text="Task3"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.702" />
-
-    <TextView
         android:id="@+id/text_userNameReciever"
         android:layout_width="194dp"
         android:layout_height="57dp"
@@ -115,5 +73,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.264" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerid"
+        android:layout_width="238dp"
+        android:layout_height="141dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.537" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
