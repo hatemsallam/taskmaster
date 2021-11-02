@@ -17,3 +17,11 @@
 ![image description](taskdetail2.PNG)
 ![image description](taskdetail3.PNG)
 
+
+## lab 28
+![image description](lab28-1.PNG)
+![image description](lab28-2.PNG)
+![image description](lab28-3.PNG)
+
+
+
