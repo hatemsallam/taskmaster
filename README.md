@@ -24,4 +24,10 @@
 ![image description](lab28-3.PNG)
 
 
+## lab 29
+![image description](lab29-1.PNG)
+![image description](lab29-2.PNG)
+![image description](lab29-3.PNG)
+
+
 

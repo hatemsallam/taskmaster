@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,19 @@ public class AddTask extends AppCompatActivity {
                 TextView textView = findViewById(R.id.textView6);
                 counter++;
                 textView.setText("Total Tasks :"+counter);
+
+                EditText taskTitleField = findViewById(R.id.plaintext_tasktitle);
+                String taskTitle = taskTitleField.getText().toString();
+
+                EditText taskBodyField = findViewById(R.id.plaintext_taskbody);
+                String taskBody = taskBodyField.getText().toString();
+
+                EditText taskStateField = findViewById(R.id.plaintext_taskstate);
+                String taskState = taskStateField.getText().toString();
+
+                Task task = new Task(taskTitle, taskBody, taskState);
+                Long addedTaskID = TaskDataBase.getInstance(getApplicationContext()).taskDao().insertTask(task);
+
                 Toast punchToast = Toast.makeText(getApplicationContext(),"submitted!", Toast.LENGTH_SHORT);
                 punchToast.show();
             }

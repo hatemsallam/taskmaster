@@ -22,14 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ArrayList<Task> tasks = new ArrayList<>();
-        tasks.add(new Task("Task1","first Task",State.NEW.toString()));
-        tasks.add(new Task("Task2","second Task",State.ASSIGNED.toString()));
-        tasks.add(new Task("Task3","third Task",State.COMPLETE.toString()));
-        tasks.add(new Task("Task4","fourth Task",State.IN_PROGRESS.toString()));
-        tasks.add(new Task("Task5","fifth Task",State.COMPLETE.toString()));
-        tasks.add(new Task("Task6","sixth Task",State.NEW.toString()));
-        tasks.add(new Task("Task7","seventh Task",State.ASSIGNED.toString()));
-        tasks.add(new Task("Task8","eighth Task",State.IN_PROGRESS.toString()));
+        TaskDataBase db = TaskDataBase.getInstance(getApplicationContext());
+        tasks = (ArrayList<Task>) db.taskDao().getAll();
         RecyclerView recyclerView = findViewById(R.id.recyclerid);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new TaskAdapter(tasks));
@@ -64,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(MainActivity.this,Settings.class);
                 startActivity(intent3);
             }
+
+
         });
 
     }
