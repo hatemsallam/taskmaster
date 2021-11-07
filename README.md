@@ -30,4 +30,12 @@
 ![image description](lab29-3.PNG)
 
 
+## lab 31
+![image description](homepagetest.png)
+![image description](settingstest.png)
+![image description](recycletest.png)
+
+
+
+
 
