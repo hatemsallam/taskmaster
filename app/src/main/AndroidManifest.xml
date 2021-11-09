@@ -10,24 +10,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Taskmaster">
+
+
         <activity
             android:name=".Settings"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
+
+
+
             />
         <activity
             android:name=".TaskDetail"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
+
             />
         <activity
             android:name=".AllTasks"
             android:exported="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
+
+            />
         <activity
             android:name=".AddTask"
             android:exported="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop"
+
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">

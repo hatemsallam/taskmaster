@@ -31,9 +31,15 @@
 
 
 ## lab 31
+- I added espresso tests to my app
 ![image description](homepagetest.png)
 ![image description](settingstest.png)
 ![image description](recycletest.png)
+
+
+## lab 32
+I added the data to the dynamoDB and I viewed it in the mainActivity
+![image description](lab32.PNG)
 
 
 

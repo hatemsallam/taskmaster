@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.core.Amplify;
+
 public class AddTask extends AppCompatActivity {
+    private static final String TAG = "AddTask";
    public static int counter = 0 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,12 @@ public class AddTask extends AppCompatActivity {
                 Task task = new Task(taskTitle, taskBody, taskState);
                 Long addedTaskID = TaskDataBase.getInstance(getApplicationContext()).taskDao().insertTask(task);
 
+
+
+                com.amplifyframework.datastore.generated.model.Task task1 = com.amplifyframework.datastore.generated.model.Task.builder()
+                        .title(taskTitle).body(taskBody).state(taskState).build();
+                apiTaskSave(task1);
+
                 Toast punchToast = Toast.makeText(getApplicationContext(),"submitted!", Toast.LENGTH_SHORT);
                 punchToast.show();
             }
@@ -45,7 +56,11 @@ public class AddTask extends AppCompatActivity {
 
     }
 
-
+    public void apiTaskSave(com.amplifyframework.datastore.generated.model.Task task){
+        Amplify.API.mutate(ModelMutation.create(task),
+                taskSaved ->{ Log.i(TAG, "Task Is Saved => " + taskSaved.getData().getTitle());},
+                error->{Log.e(TAG, "Task Is Not Saved => " + error.toString());});
+    }
 
 
 
