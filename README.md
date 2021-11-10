@@ -43,6 +43,9 @@ I added the data to the dynamoDB and I viewed it in the mainActivity
 
 ## lab 33
 
+## lab 34
+
+
 
 
 
