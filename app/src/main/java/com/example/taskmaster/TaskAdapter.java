@@ -1,6 +1,5 @@
 package com.example.taskmaster;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,57 +8,68 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amplifyframework.datastore.generated.model.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder>{
-    List<com.amplifyframework.datastore.generated.model.Task> tasks = new ArrayList<>();
+public class TaskAdapter extends RecyclerView.Adapter <TaskAdapter.TaskViewHolder>{
+    private List<com.amplifyframework.datastore.generated.model.Task> allTasksData = new ArrayList<>();
+    private OnTaskItemClickListener listener;
+
+    public TaskAdapter(List<com.amplifyframework.datastore.generated.model.Task> tasks) {
+    }
 
 
-    public TaskAdapter(ArrayList<com.amplifyframework.datastore.generated.model.Task> tasks) {
-        this.tasks = tasks;
+    public interface OnTaskItemClickListener {
+        void onItemClicked(int position);
+    }
 
+    public TaskAdapter(List<com.amplifyframework.datastore.generated.model.Task> allTasksData, OnTaskItemClickListener listener) {
+        this.allTasksData = allTasksData;
+        this.listener = listener;
+
+    }
+
+
+    public static class TaskViewHolder extends RecyclerView.ViewHolder{
+        public Task task;
+        public TextView title;
+        public TextView body;
+        public TextView state ;
+        View itemView;
+
+        TaskViewHolder(@NonNull View itemView ,OnTaskItemClickListener listener) {
+            super(itemView);
+            this.itemView =itemView;
+            title = itemView.findViewById(R.id.fragment_title);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClicked(getAdapterPosition());
+
+                }
+            });
+        }
     }
 
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_task,parent,false);
-        TaskViewHolder taskViewHolder = new TaskViewHolder(view);
-        return taskViewHolder;
+        return new TaskViewHolder(view, listener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        holder.task = tasks.get(position);
-        TextView textView = holder.itemView.findViewById(R.id.task_fragment);
-        textView.setText(holder.task.getTitle());
+    public void onBindViewHolder(@NonNull TaskViewHolder taskViewHolder, int position) {
+        com.amplifyframework.datastore.generated.model.Task item = allTasksData.get(position);
+        taskViewHolder.title.setText(item.getTitle());
+//        taskViewHolder.body.setText(item.getBody());
+//        taskViewHolder.state.setText(item.getState());
     }
+
 
     @Override
     public int getItemCount() {
-        return tasks.size();
-    }
-
-    public static class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-        public Task task;
-        View itemView;
-        public TaskViewHolder(@NonNull View itemView) {
-            super(itemView);
-            this.itemView = itemView;
-            this.itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            Intent intent= new Intent(view.getContext(),TaskDetail.class);
-            intent.putExtra("title",task.getTitle());
-            intent.putExtra("body",task.getBody());
-            intent.putExtra("state",task.getState());
-            view.getContext().startActivity(intent);
-        }
+        return allTasksData.size();
     }
 }

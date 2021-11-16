@@ -9,20 +9,39 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
-            android:id="@+id/task_fragment"
-            android:layout_width="115dp"
-            android:layout_height="60dp"
-            android:text="Task"
-            android:textAlignment="center"
-            android:textSize="34sp"
-            android:textStyle="bold"
+            android:id="@+id/fragment_title"
+            android:layout_width="184dp"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.149"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.22" />
+            app:layout_constraintVertical_bias="0.05" />
+
+        <TextView
+            android:id="@+id/fragment_body"
+            android:layout_width="214dp"
+            android:layout_height="37dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.172"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_title"
+            app:layout_constraintVertical_bias="0.076" />
+
+        <TextView
+            android:id="@+id/fragment_state"
+            android:layout_width="218dp"
+            android:layout_height="33dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.176"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_body"
+            app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
