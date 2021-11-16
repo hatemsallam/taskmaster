@@ -9,8 +9,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 100,
-              "description": "hatemkey"
+              "apiKeyExpirationDays": 45,
+              "description": "taskmaster key"
             }
           }
         }

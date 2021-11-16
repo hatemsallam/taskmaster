@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,13 +41,28 @@ public class AddTask extends AppCompatActivity {
                 EditText taskStateField = findViewById(R.id.plaintext_taskstate);
                 String taskState = taskStateField.getText().toString();
 
+                RadioButton team1Btn = findViewById(R.id.team1_id);
+                RadioButton team2Btn = findViewById(R.id.team2_id);
+                RadioButton team3Btn = findViewById(R.id.team3_id);
+
+                String id = "0";
+                if(team1Btn.isChecked()){
+                    id="1";
+                }
+                else if(team2Btn.isChecked()){
+                    id="2";
+                }
+                else if(team3Btn.isChecked()){
+                    id="3";
+                }
+
                 Task task = new Task(taskTitle, taskBody, taskState);
                 Long addedTaskID = TaskDataBase.getInstance(getApplicationContext()).taskDao().insertTask(task);
 
 
 
                 com.amplifyframework.datastore.generated.model.Task task1 = com.amplifyframework.datastore.generated.model.Task.builder()
-                        .title(taskTitle).body(taskBody).state(taskState).build();
+                        .teamId(id).title(taskTitle).body(taskBody).state(taskState).build();
                 apiTaskSave(task1);
 
                 Toast punchToast = Toast.makeText(getApplicationContext(),"submitted!", Toast.LENGTH_SHORT);
