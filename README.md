@@ -62,5 +62,28 @@ Building an APK for your taskMater App
 
 
 
+## Lab: 36 - Cognito
+- Overview
+
+Updating Taskmaster app to allow users to sign up and log in using Cognito.
+
+### SignUp Activity
+![image description](lab36-2.PNG)
+
+
+### SignIn Activity
+
+
+![image description](lab36-1.PNG)
+
+### Main Activity
+I've used email in auth configurations, so each user can view their email in the top bar in main Activity after they signedIn .
+
+![image description](lab36-3.PNG)
+
+### Cognito Board
+![image description](cognito-board.png)
+
+
 
 
