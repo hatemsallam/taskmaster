@@ -23,6 +23,7 @@ import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.datastore.generated.model.Task;
@@ -35,23 +36,46 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private List<Task> addedTasks = new ArrayList<>();
     Handler handler;
-
+    Handler userNameHandler;
+    String username = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getAuthUserName();
         System.out.println("***************ON CREATE ****************");
         Intent intent = getIntent();
         String extra = intent.getStringExtra("Configured");
         System.out.println(extra);
-        if (extra == null) {
-            configureAmplify();
-        }
+//        if (extra == null) {
+//            configureAmplify();
+//        }
+
+
+
+        userNameHandler = new Handler(Looper.getMainLooper(),message -> {
+            username = message.getData().getString("userName");
+            TextView text = findViewById(R.id.text_userNameReciever);
+            text.setText(username + "'s Tasks");
+            return false;
+        });
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+        Button logOutBTN = findViewById(R.id.logoutbtn);
+        logOutBTN.setOnClickListener(view -> {
+            Amplify.Auth.signOut(
+                    () -> {
+                        Log.i("AuthQuickstart", "Signed out successfully");
+                        Intent intent4 = new Intent(this, SignIn.class);
+                        startActivity(intent4);
+                    },
+                    error -> Log.e("AuthQuickstart", error.toString())
+            );
+        });
 
 
         Button button = findViewById(R.id.button);
@@ -118,8 +142,10 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("**********TRY METHOD************");
             Amplify.addPlugin(new AWSDataStorePlugin());
             // stores records locally
+            Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSApiPlugin()); // stores things in DynamoDB and allows us to perform GraphQL queries
             Amplify.configure(getApplicationContext());
+
 
             Log.i(TAG, "Initialized Amplify");
         } catch (AmplifyException error) {
@@ -258,5 +284,16 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
-
+    public void getAuthUserName(){
+        Amplify.Auth.fetchUserAttributes(
+                attributes -> {Log.i("AuthDemo", "User attributes = " + attributes.get(2).getValue());
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userName",attributes.get(2).getValue());
+                    Message message = new Message();
+                    message.setData(bundle);
+                    userNameHandler.sendMessage(message);
+                },
+                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+        );
+    }
 }
