@@ -97,6 +97,11 @@ I've used email in auth configurations, so each user can view their email in the
 ![image description](lab38-1.PNG)
 
 
+## Lab: 39 - Adding Analytics
+
+![image description](lab39.png)
+
+
 
 
 
