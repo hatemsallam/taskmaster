@@ -4,7 +4,6 @@ import static androidx.test.espresso.Espresso.*;
 //import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
-import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
@@ -12,7 +11,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import androidx.test.espresso.Espresso;
-import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -61,7 +59,7 @@ public class MainTest {
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.plaintext_taskstate)).perform(replaceText("new"));
         Espresso.closeSoftKeyboard();
-        onView(withId(R.id.button3)).perform(click());
+        onView(withId(R.id.choosefileid)).perform(click());
         Espresso.pressBack();
         onView(withId(R.id.recyclerid)).perform(RecyclerViewActions.actionOnItemAtPosition(2, click()));
         onView(withId(R.id.text_taskTitle)).check(matches(withText("study")));
