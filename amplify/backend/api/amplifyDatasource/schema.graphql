@@ -15,6 +15,7 @@ type Task  @model @key(name: "tasks", fields: ["teamId"]) {
   title: String!
   body: String!
   state: String!
+  fileKey: String
 }
 
 type Team @model {

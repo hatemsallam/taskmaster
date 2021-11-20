@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
                 intentTaskDetails.putExtra("task_body", finalTasks.get(position).getBody());
                 intentTaskDetails.putExtra("task_state", finalTasks.get(position).getState());
                 intentTaskDetails.putExtra("team_id", finalTasks.get(position).getTeamId()+"team");
+                intentTaskDetails.putExtra("file_url", finalTasks.get(position).getFileKey());
                 startActivity(intentTaskDetails);
 
             }

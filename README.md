@@ -85,5 +85,14 @@ I've used email in auth configurations, so each user can view their email in the
 ![image description](cognito-board.png)
 
 
+## Lab: 36 - S3 Uploads
+
+![image description](lab37-1.PNG)
+![image description](lab37-3.PNG)
+![image description](lab37-2.PNG)
+
+
+
+
 
 

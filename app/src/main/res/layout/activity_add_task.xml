@@ -108,7 +108,20 @@
         app:layout_constraintVertical_bias="0.22" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/choosefileid"
+        android:layout_width="143dp"
+        android:layout_height="63dp"
+        android:backgroundTint="#49CABF"
+        android:text="choose file"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.896" />
+
+    <Button
+        android:id="@+id/button4"
         android:layout_width="143dp"
         android:layout_height="63dp"
         android:backgroundTint="#49CABF"
@@ -138,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/choosefileid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plaintext_taskstate">
