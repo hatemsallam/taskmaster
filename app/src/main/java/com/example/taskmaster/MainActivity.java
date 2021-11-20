@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.analytics.AnalyticsEvent;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
 //        if (extra == null) {
 //            configureAmplify();
 //        }
-
+        sendAnalytic();
         //====================================================
         getPinpointManager(getApplicationContext());
         assignUserIdToEndpoint();
@@ -194,6 +195,19 @@ public class MainActivity extends AppCompatActivity {
         saveTeamToApi("Team3","3");
 
 
+    }
+
+
+    public static void sendAnalytic() {
+        AnalyticsEvent event = AnalyticsEvent.builder()
+                .name("PasswordReset")
+                .addProperty("Channel", "SMS")
+                .addProperty("Successful", true)
+                .addProperty("ProcessDuration", 792)
+                .addProperty("UserAge", 120.3)
+                .build();
+
+        Amplify.Analytics.recordEvent(event);
     }
 
     @Override

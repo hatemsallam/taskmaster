@@ -51,6 +51,8 @@ public class AddTask extends AppCompatActivity implements HandlePathOzListener.S
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
+        MainActivity.sendAnalytic();
+
         handlePathOz = new HandlePathOz(this, this);
 
         Button uploadBtn = findViewById(R.id.choosefileid);
