@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/STUDENT/codefellows/401java/android/taskmaster/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2203125" />
         <entry key="..\:/Users/STUDENT/codefellows/401java/android/taskmaster/app/src/main/res/layout/activity_add_task.xml" value="0.25" />
         <entry key="..\:/Users/STUDENT/codefellows/401java/android/taskmaster/app/src/main/res/layout/activity_all_tasks.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/STUDENT/codefellows/401java/android/taskmaster/app/src/main/res/layout/activity_confirm_user.xml" value="0.15489130434782608" />
