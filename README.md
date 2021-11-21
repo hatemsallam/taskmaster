@@ -102,6 +102,13 @@ I've used email in auth configurations, so each user can view their email in the
 ![image description](lab39.png)
 
 
+## Lab: 41 - Intent Filters
+
+![image description](lab41-1.PNG)
+![image description](lab41-2.PNG)
+
+
+
 
 
 
